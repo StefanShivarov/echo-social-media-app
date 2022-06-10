@@ -1,1 +1,16 @@
-<p>sign-in works!</p>
+<form class="auth-form" action="">
+    <h2>Sign In</h2>
+    
+    <div class="form-row single-input">
+        <input type="email" id="email" name="email" placeholder="Email">
+    </div>
+    
+    <div class="form-row single-input">
+        <input type="password" id="password" name="password" placeholder="Password">
+    </div>
+    <div class="form-row form-submit">
+        <input class="submit-btn" type="submit" value="Sign In">
+    </div>
+    <p class="redirect-text">Don't have an account yet? <button (click)="onRedirect($event)" class="redirect-link">Sign Up</button>.
+    </p>
+</form>

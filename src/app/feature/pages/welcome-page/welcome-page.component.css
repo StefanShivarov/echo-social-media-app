@@ -1,0 +1,27 @@
+#wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(360deg, rgba(255,255,255,1) 0%, rgba(65,158,152,1) 100%);
+    height: 80vh;
+    gap: 20%;
+}
+
+.welcome-section {
+    display: flex;
+    align-items: center;
+}
+
+.welcome-section .info .logo {
+    font-size: 5rem;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 700;
+    color: #fff;
+}
+
+.welcome-section .info .slogan {
+    font-size: 3rem;
+    font-weight: 400;
+    color: #fff;
+}
+

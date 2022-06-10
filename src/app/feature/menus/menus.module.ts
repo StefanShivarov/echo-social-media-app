@@ -14,6 +14,9 @@ import { FriendsListComponent } from './friends-list/friends-list.component';
   ],
   imports: [
     CommonModule
+  ],
+  exports:[
+    FooterComponent
   ]
 })
 export class MenusModule { }

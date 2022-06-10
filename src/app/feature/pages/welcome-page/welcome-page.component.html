@@ -1,0 +1,11 @@
+<main id="wrapper">
+    <section class="welcome-section">
+        <div class="info">
+            <h1 class="logo">echo</h1>
+            <h4 class="slogan">Make the whole world hear it.</h4>
+        </div>
+    </section>
+    <app-sign-up *ngIf="!showSignInForm" (showSignInForm)="toggleForms()"></app-sign-up>
+    <app-sign-in *ngIf="showSignInForm" (showSignInForm)="toggleForms()"></app-sign-in>    
+</main>
+<app-footer></app-footer>

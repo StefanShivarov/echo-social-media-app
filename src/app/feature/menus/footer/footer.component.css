@@ -1,0 +1,25 @@
+footer{
+    display: flex;
+    padding: 2rem 5rem;
+    justify-content: center;
+    gap: 10rem;
+    align-items: baseline;
+}
+
+footer ul{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+footer ul li a{
+    text-decoration: none;
+    color: #000;
+}
+
+.footer-title{
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 2rem;
+    color: #419e98;
+}
