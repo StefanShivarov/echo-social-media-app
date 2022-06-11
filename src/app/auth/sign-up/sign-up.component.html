@@ -9,7 +9,7 @@
     </div>
     <div class="form-row">
         <input class="custom-file-input" type="file" accept="image/jpg, image/jpeg, image/png"
-            name="profilePicture" id="profilePicture" (change)="onFileSelected($event)">
+            name="profilePicture" id="profilePicture" formControlName="pictureFile" (change)="onFileSelected($event)">
         <p class="filename">{{selectedFileName === '' ? 'No file selected.' : selectedFileName}}</p>
     </div>
     <div class="form-row multiple-inputs">
@@ -235,7 +235,7 @@
             <option value="Zimbabwe">Zimbabwe</option>
         </select>
     </div>
-    <div class="form-row multiple-inputs">
+    <div formGroupName="passwords" class="form-row multiple-inputs">
         <input formControlName="password" type="password" id="password" name="password" placeholder="Password">
         <input formControlName="repeatPassword" type="password" id="repeatPassword" name="repeatPassword" placeholder="Repeat Password">
     </div>

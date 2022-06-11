@@ -2,7 +2,10 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { getDownloadURL, ref, Storage, uploadBytes, uploadBytesResumable } from '@angular/fire/storage';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { finalize, pipe } from 'rxjs';
+import { profile } from 'console';
+import { finalize, pipe, switchMap } from 'rxjs';
+import { AuthService } from 'src/app/core/services/auth.service';
+import { UserService } from 'src/app/core/services/user.service';
 import { passwordsMatch } from '../util';
 
 @Component({
@@ -17,14 +20,16 @@ export class SignUpComponent implements OnInit {
   selectedFile: any = null;
   profilePictureUrl: string = '';
 
-  constructor(private storage: Storage, private formBuilder: FormBuilder, private router: Router) { }
+  constructor(private storage: Storage, private formBuilder: FormBuilder, private router: Router,
+    private authService: AuthService, private userService: UserService) { }
 
-  passwordControl = new FormControl(null, [Validators.required, Validators.minLength(5)]);
+  passwordControl = new FormControl(null, [Validators.required, Validators.minLength(6)]);
 
   signUpFormGroup: FormGroup = this.formBuilder.group({
     'firstName': new FormControl(null, [Validators.required, Validators.minLength(2)]),
     'lastName': new FormControl(null, [Validators.required, Validators.minLength(2)]),
     'email': new FormControl(null, [Validators.required, Validators.email]),
+    'pictureFile': new FormControl(null, [Validators.required]),
     'birthDate': new FormControl(null, [Validators.required]),
     'country': new FormControl(null, [Validators.required]),
     'passwords': new FormGroup({
@@ -37,50 +42,60 @@ export class SignUpComponent implements OnInit {
     return this.signUpFormGroup.controls['passwords'] as FormGroup;
   }
 
-  shouldShowErrorForControl(controlName: string, sourceGroup: FormGroup = this.signUpFormGroup){
+  shouldShowErrorForControl(controlName: string, sourceGroup: FormGroup = this.signUpFormGroup) {
     return sourceGroup.controls[controlName].touched && sourceGroup.controls[controlName].invalid;
   }
 
   ngOnInit(): void {
   }
 
-  onFileSelected($event: any){
+  onFileSelected($event: any) {
     console.log($event.target.files[0]);
-    if($event.target.files[0] === undefined){
+    if ($event.target.files[0] === undefined) {
       this.selectedFile = null;
       this.selectedFileName = 'No file selected.';
-    }else{
+    } else {
       this.selectedFile = $event.target.files[0];
       this.selectedFileName = $event.target.files[0].name;
     }
   }
 
-  onSignInRedirect($event: Event){
+  onSignInRedirect($event: Event) {
     $event.preventDefault();
     this.showSignInForm.emit(true);
   }
 
-  handleSignUp(): void{
+  handleSignUp(): void {
+    if (this.signUpFormGroup.invalid) {
+      throw new Error('Invalid data');
+    }
 
-    // if(this.signUpFormGroup.invalid){
-    //   throw new Error('Invalid data');
-    // }
+    const { firstName, lastName, email, pictureFile, birthDate, country, passwords } = this.signUpFormGroup.value;
+    const password = passwords.password;
 
-    // if(!this.selectedFile){
-    //   const storageRef = ref(this.storage, `/profile_pictures/${Date.now()}_${this.selectedFileName}`);
-    //   uploadBytesResumable(ref(this.storage, `/profile_pictures/${Date.now()}_${this.selectedFileName}`), this.selectedFile)
-    //     .then((snapshot) =>{
-    //       console.log(snapshot);
-    //      })
-    //     .catch(err => console.log(err))
-    //     .finally(()=>{
-    //       getDownloadURL(storageRef).then((value)=>this.profilePictureUrl = value);
-    //     })
-    // }
 
-    const body = this.signUpFormGroup.value;
-    console.log(body);
-    
+    if (this.selectedFile) {
+      const storageRef = ref(this.storage, `/profile_pictures/${Date.now()}_${this.selectedFileName}`);
+      uploadBytesResumable(storageRef, this.selectedFile)
+        .then((snapshot) => {
+          console.log(snapshot);
+        })
+        .catch(err => console.log(err))
+        .finally(() => {
+          getDownloadURL(storageRef).then((profilePictureUrl) => {
+            console.log(profilePictureUrl);
+            this.authService.signUp$(email, password)
+              .pipe(
+                switchMap(({ user: { uid } }) =>
+                  this.userService.createUser$({ uid, email, firstName, lastName, birthDate, country, profilePictureUrl })
+                )
+              ).subscribe(() => {
+                this.router.navigate(['/'])
+              });
+          });
+        })
+    }
+
   }
 
 }

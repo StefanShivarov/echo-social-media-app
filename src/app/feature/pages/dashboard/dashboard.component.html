@@ -1,1 +1,5 @@
-<p>dashboard works!</p>
+<ng-container *ngIf="user$ | async as user">
+    <h1>{{user.firstName}}</h1>
+    <img [src]="user.profilePictureUrl" alt="">
+    <button (click)="signOut()">Sign out</button>
+</ng-container>
