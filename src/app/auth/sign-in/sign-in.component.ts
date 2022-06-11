@@ -15,7 +15,7 @@ export class SignInComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onRedirect($event: Event){
+  onSignUpRedirect($event: Event){
     $event.preventDefault();
     this.showSignInForm.emit(false);
   }

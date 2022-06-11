@@ -27,7 +27,6 @@ import { PagesModule } from './feature/pages/pages.module';
     CoreModule.forRoot(),
     AuthModule,
     PagesModule,
-    
   ],
   providers: [],
   bootstrap: [AppComponent]

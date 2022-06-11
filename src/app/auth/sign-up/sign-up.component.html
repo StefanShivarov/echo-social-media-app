@@ -1,20 +1,20 @@
-<form class="auth-form" action="">
+<form [formGroup]="signUpFormGroup" (ngSubmit)="handleSignUp()" class="auth-form" action="">
     <h2>Create your account</h2>
     <div class="form-row multiple-inputs">
-        <input type="text" id="firstName" name="firstName" placeholder="First Name">
-        <input type="text" id="lastName" name="lastName" placeholder="Last Name">
+        <input formControlName="firstName" type="text" id="firstName" name="firstName" placeholder="First Name">
+        <input formControlName="lastName" type="text" id="lastName" name="lastName" placeholder="Last Name">
     </div>
     <div class="form-row single-input">
-        <input type="email" id="email" name="email" placeholder="Email">
+        <input formControlName="email" type="email" id="email" name="email" placeholder="Email">
     </div>
     <div class="form-row">
         <input class="custom-file-input" type="file" accept="image/jpg, image/jpeg, image/png"
-            name="profilePicture" id="profilePicture">
-        <p class="filename">No file chosen.</p>
+            name="profilePicture" id="profilePicture" (change)="onFileSelected($event)">
+        <p class="filename">{{selectedFileName === '' ? 'No file selected.' : selectedFileName}}</p>
     </div>
     <div class="form-row multiple-inputs">
-        <input class="datepicker" type="date" name="birthDate" id="birthDate" value="Date of Birth">
-        <select id="country" name="country" class="dropdown-list">
+        <input formControlName="birthDate" class="datepicker" type="date" name="birthDate" id="birthDate" value="Date of Birth">
+        <select formControlName="country" id="country" name="country" class="dropdown-list">
             <option selected value="">Choose a country</option>
             <option value="Afghanistan">Afghanistan</option>
             <option value="Albania">Albania</option>
@@ -236,12 +236,12 @@
         </select>
     </div>
     <div class="form-row multiple-inputs">
-        <input type="password" id="password" name="password" placeholder="Password">
-        <input type="password" id="repeatPassword" name="repeatPassword" placeholder="Repeat Password">
+        <input formControlName="password" type="password" id="password" name="password" placeholder="Password">
+        <input formControlName="repeatPassword" type="password" id="repeatPassword" name="repeatPassword" placeholder="Repeat Password">
     </div>
     <div class="form-row form-submit">
         <input class="submit-btn" type="submit" value="Create">
     </div>
-    <p class="redirect-text">Already have an account? <button (click)="onRedirect($event)" class="redirect-link">Sign in</button> instead.
+    <p class="redirect-text">Already have an account? <button (click)="onSignInRedirect($event)" class="redirect-link">Sign in</button> instead.
     </p>
 </form>
