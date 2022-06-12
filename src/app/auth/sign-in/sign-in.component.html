@@ -4,11 +4,11 @@
         <p class="error-message">{{errorMessage}}</p>
     </div>
     <div class="form-row single-input">
-        <input formControlName="email" type="email" id="email" name="email" placeholder="Email">
+        <input [class.input-error]="shouldShowErrorForControl('email')" formControlName="email" type="email" id="email" name="email" placeholder="Email">
     </div>
     
     <div class="form-row single-input">
-        <input formControlName="password" type="password" id="password" name="password" placeholder="Password">
+        <input [class.input-error]="shouldShowErrorForControl('password')" formControlName="password" type="password" id="password" name="password" placeholder="Password">
     </div>
     <div class="form-row form-submit">
         <input class="submit-btn" type="submit" value="Sign In">

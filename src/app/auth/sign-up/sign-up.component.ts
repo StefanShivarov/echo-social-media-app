@@ -19,6 +19,7 @@ export class SignUpComponent implements OnInit {
   selectedFileName: string = '';
   selectedFile: any = null;
   profilePictureUrl: string = '';
+  errorMessage: string = '';
 
   constructor(private storage: Storage, private formBuilder: FormBuilder, private router: Router,
     private authService: AuthService, private userService: UserService) { }
@@ -67,6 +68,7 @@ export class SignUpComponent implements OnInit {
 
   handleSignUp(): void {
     if (this.signUpFormGroup.invalid) {
+      this.errorMessage = 'Invalid input data!';
       throw new Error('Invalid data');
     }
 

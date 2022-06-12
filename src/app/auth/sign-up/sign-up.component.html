@@ -1,20 +1,23 @@
 <form [formGroup]="signUpFormGroup" (ngSubmit)="handleSignUp()" class="auth-form" action="">
-    <h2>Create your account</h2>
+    <div class="form-row form-error-message">
+        <h2>Create your account</h2>
+        <p class="error-message">{{errorMessage}}</p>
+    </div>
     <div class="form-row multiple-inputs">
-        <input formControlName="firstName" type="text" id="firstName" name="firstName" placeholder="First Name">
-        <input formControlName="lastName" type="text" id="lastName" name="lastName" placeholder="Last Name">
+        <input [class.input-error]="shouldShowErrorForControl('firstName')" formControlName="firstName" type="text" id="firstName" name="firstName" placeholder="First Name">
+        <input [class.input-error]="shouldShowErrorForControl('lastName')" formControlName="lastName" type="text" id="lastName" name="lastName" placeholder="Last Name">
     </div>
     <div class="form-row single-input">
-        <input formControlName="email" type="email" id="email" name="email" placeholder="Email">
+        <input [class.input-error]="shouldShowErrorForControl('email')" formControlName="email" type="email" id="email" name="email" placeholder="Email">
     </div>
     <div class="form-row">
-        <input class="custom-file-input" type="file" accept="image/jpg, image/jpeg, image/png"
+        <input  class="custom-file-input" type="file" accept="image/jpg, image/jpeg, image/png"
             name="profilePicture" id="profilePicture" formControlName="pictureFile" (change)="onFileSelected($event)">
         <p class="filename">{{selectedFileName === '' ? 'No file selected.' : selectedFileName}}</p>
     </div>
     <div class="form-row multiple-inputs">
-        <input formControlName="birthDate" class="datepicker" type="date" name="birthDate" id="birthDate" value="Date of Birth">
-        <select formControlName="country" id="country" name="country" class="dropdown-list">
+        <input [class.input-error]="shouldShowErrorForControl('birthDate')" formControlName="birthDate" class="datepicker" type="date" name="birthDate" id="birthDate" value="Date of Birth">
+        <select [class.input-error]="shouldShowErrorForControl('country')" formControlName="country" id="country" name="country" class="dropdown-list">
             <option selected value="">Choose a country</option>
             <option value="Afghanistan">Afghanistan</option>
             <option value="Albania">Albania</option>
@@ -236,8 +239,8 @@
         </select>
     </div>
     <div formGroupName="passwords" class="form-row multiple-inputs">
-        <input formControlName="password" type="password" id="password" name="password" placeholder="Password">
-        <input formControlName="repeatPassword" type="password" id="repeatPassword" name="repeatPassword" placeholder="Repeat Password">
+        <input [class.input-error]="shouldShowErrorForControl('password', passwordsGroup)" formControlName="password" type="password" id="password" name="password" placeholder="Password">
+        <input [class.input-error]="shouldShowErrorForControl('repeatPassword', passwordsGroup)" formControlName="repeatPassword" type="password" id="repeatPassword" name="repeatPassword" placeholder="Repeat Password">
     </div>
     <div class="form-row form-submit">
         <input class="submit-btn" type="submit" value="Create">
