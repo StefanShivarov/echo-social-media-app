@@ -1,8 +1,5 @@
-<ng-container *ngIf="(user$ | async) && loading !== null">
-    
-    
+<ng-container *ngIf="(user$ | async) && loading !== null && loading === false">
     <app-dashboard></app-dashboard>
-    
 </ng-container>
 <ng-container *ngIf="(user$ | async) == null && loading === false">
     <app-welcome-page>
@@ -10,11 +7,7 @@
     </app-welcome-page>
 </ng-container>
 <ng-container *ngIf="loading === true && loading === true">
-    <h1>Loading...</h1>
+    <app-loading>
+
+    </app-loading>
 </ng-container>
-
-
-
-
-
-

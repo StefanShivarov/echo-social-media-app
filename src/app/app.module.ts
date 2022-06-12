@@ -11,6 +11,7 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { provideStorage,getStorage } from '@angular/fire/storage';
 import { CoreModule } from './core/core.module';
 import { PagesModule } from './feature/pages/pages.module';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Auth } from '@angular/fire/auth';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { UserService } from 'src/app/core/services/user.service';
@@ -11,10 +11,14 @@ import { UserService } from 'src/app/core/services/user.service';
 export class LandingPageComponent implements OnInit {
 
   user$ = this.userService.currentUserProfile$;
-  loading: boolean | null = null;
+  loading: boolean = false;
   constructor(private authService: AuthService, private userService: UserService) { }
 
   ngOnInit(): void {
+    this.load();
+  }
+
+  load(): void{
     this.loading = true;
     setTimeout(()=>{
       this.loading = false;

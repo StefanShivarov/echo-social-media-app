@@ -6,7 +6,8 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { MenusModule } from '../menus/menus.module';
 import { AuthModule } from 'src/app/auth/auth.module';
-
+import { LoadingComponent } from './loading/loading.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 
 @NgModule({
@@ -15,11 +16,13 @@ import { AuthModule } from 'src/app/auth/auth.module';
     WelcomePageComponent,
     ProfileComponent,
     LandingPageComponent,
+    LoadingComponent,
   ],
   imports: [
     CommonModule,
     AuthModule,
     MenusModule,
+    MatProgressSpinnerModule
   ],
   exports:[
     WelcomePageComponent

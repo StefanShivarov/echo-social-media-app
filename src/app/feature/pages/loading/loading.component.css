@@ -1,0 +1,20 @@
+#wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+#wrapper h1.logo{
+    font-size: 5rem;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 700;
+    color: #419e98;
+}
+
+.loading-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
