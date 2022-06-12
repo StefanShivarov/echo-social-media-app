@@ -20,6 +20,15 @@
     gap: 1rem;
 }
 
+.auth-form .form-error-message{
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.form-error-message .error-message{
+    color: red;
+}
+
 .auth-form input[type="text"],
 .auth-form input[type="email"],
 .auth-form input[type="password"],

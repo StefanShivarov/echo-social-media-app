@@ -1,12 +1,14 @@
-<form class="auth-form" action="">
-    <h2>Sign In</h2>
-    
+<form [formGroup]="signInFormGroup" (ngSubmit)="handleSignIn()" class="auth-form" action="">
+    <div class="form-row form-error-message">
+        <h2>Sign In</h2>
+        <p class="error-message">{{errorMessage}}</p>
+    </div>
     <div class="form-row single-input">
-        <input type="email" id="email" name="email" placeholder="Email">
+        <input formControlName="email" type="email" id="email" name="email" placeholder="Email">
     </div>
     
     <div class="form-row single-input">
-        <input type="password" id="password" name="password" placeholder="Password">
+        <input formControlName="password" type="password" id="password" name="password" placeholder="Password">
     </div>
     <div class="form-row form-submit">
         <input class="submit-btn" type="submit" value="Sign In">
