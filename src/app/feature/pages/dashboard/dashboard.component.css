@@ -1,0 +1,44 @@
+nav.navbar{
+    display: flex;
+    justify-content: space-around;
+    padding: 1.5rem;
+}
+
+.navbar-search{
+    display: flex;
+    align-items: center;
+}
+
+.navbar-list{
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 2rem;
+}
+
+/* .navbar-profile-pic img{
+    border-radius: 50%;
+    width: 100%;
+} */
+
+.navbar-list li a{
+    height: 100%;
+    color: black;
+    font-size: 1.3rem;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+
+.navbar-list li a img{
+    height: 1.4rem;
+    width: 1.4rem;
+    border-radius: 50%;
+}
+
+.navbar-list li a p{
+    font-size: 1rem;
+}

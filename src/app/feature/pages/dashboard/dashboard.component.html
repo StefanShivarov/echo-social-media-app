@@ -1,5 +1,40 @@
-<ng-container *ngIf="user$ | async as user">
-    <h1>{{user.firstName}}</h1>
-    <img [src]="user.profilePictureUrl" alt="">
-    <button (click)="signOut()">Sign out</button>
-</ng-container>
+<nav class="navbar">
+    <div class="navbar-search">
+        <h2>echo</h2>
+        <form class="search-form" action="">
+            <input class="search-bar" type="search" name="searchBar" id="searchBar">
+        </form>
+    </div>
+
+
+
+    <ul class="navbar-list">
+        <li>
+            <a href="">
+                <i class="fa-solid fa-house"></i>
+                <p>Home</p>
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <i class="fa-solid fa-user-group"></i>
+                <p>Contacts</p>
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <i class="fa-solid fa-message"></i>
+                <p>Messages</p>
+            </a>
+        </li>
+        <li>
+            <a class="navbar-profile-pic" href="">
+                <img src="https://thumbs.dreamstime.com/b/default-avatar-profile-vector-user-profile-default-avatar-profile-vector-user-profile-profile-179376714.jpg"
+                    alt="Profile Picture">
+                <p>username</p>
+            </a>
+        </li>
+    </ul>
+
+</nav>
+<!-- *ngIf="user$ | async as user" -->
