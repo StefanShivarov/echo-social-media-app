@@ -9,6 +9,7 @@ import { AuthModule } from 'src/app/auth/auth.module';
 import { LoadingComponent } from './loading/loading.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
+
 @NgModule({
   declarations: [
     DashboardComponent,

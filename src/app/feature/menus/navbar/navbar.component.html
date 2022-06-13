@@ -1,0 +1,59 @@
+<nav class="navbar">
+    <div class="navbar-search">
+        <a href=""><h2>echo</h2></a>
+        <form class="search-form" action="">
+            <input class="search-bar" type="search" name="searchBar" id="searchBar" placeholder="Search">
+            <i class="fas fa-search"></i>
+        </form>
+    </div>
+    <ul class="navbar-list">
+        <li>
+            <a class="nav-link" href="">
+                <i class="fa-solid fa-house"></i>
+                <p>Home</p>
+            </a>
+        </li>
+        <li>
+            <a class="nav-link" href="">
+                <i class="fa-solid fa-user-group"></i>
+                <p>Contacts</p>
+            </a>
+        </li>
+        <li>
+            <a class="nav-link" href="">
+                <i class="fa-solid fa-message"></i>
+                <p>Messages</p>
+            </a>
+        </li>
+        <li class="profile-item">
+            <button (click)="onProfileDropdownToggle()" class="navbar-profile-pic-button" href="">
+                <img src="https://thumbs.dreamstime.com/b/default-avatar-profile-vector-user-profile-default-avatar-profile-vector-user-profile-profile-179376714.jpg"
+                    alt="Profile Picture">
+                <p class="username">username  <i class="fa-solid fa-sort-down"></i></p>
+            </button>
+            <div *ngIf="showProfileDropdown" class="navbar-profile-dropdown">
+                <a href="">Go to profile</a>
+                <a href="">Sign out</a>
+            </div>
+        </li>
+        <li class="mobile-menu-item">
+            <button (click)="onMobileMenuToggle()" class="burger-btn">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <div *ngIf="showMobileMenu" class="mobile-menu-dropdown">
+                <a href="">
+                    <img src="https://images.unsplash.com/photo-1594751543129-6701ad444259?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8ZGFyayUyMHByb2ZpbGV8ZW58MHx8MHx8&w=1000&q=80" alt="">
+                    <div class="mobile-menu-profile-info">
+                        <p class="mobile-menu-username">Stefan Shivarov</p>
+                        <p>Go to profile</p>
+                    </div>
+                    
+                </a>
+                <a href=""><i class="fas fa-home"></i> Home</a>
+                <a href=""><i class="fa-solid fa-user-group"></i> Contacts</a>
+                <a href=""><i class="fa-solid fa-message"></i> Messages</a>
+                <a href=""><i class="fa-solid fa-right-from-bracket"></i> Sign out</a>
+            </div>
+        </li>
+    </ul>
+</nav> 

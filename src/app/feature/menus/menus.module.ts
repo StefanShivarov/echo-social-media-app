@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FooterComponent } from './footer/footer.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { FriendsListComponent } from './friends-list/friends-list.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 
@@ -10,13 +11,15 @@ import { FriendsListComponent } from './friends-list/friends-list.component';
   declarations: [
     FooterComponent,
     SidebarComponent,
-    FriendsListComponent
+    FriendsListComponent,
+    NavbarComponent
   ],
   imports: [
     CommonModule
   ],
   exports:[
-    FooterComponent
+    FooterComponent,
+    NavbarComponent
   ]
 })
 export class MenusModule { }

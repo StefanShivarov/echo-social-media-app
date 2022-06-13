@@ -1,8 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
-
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap');
-@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+/* @import '~@angular/material/prebuilt-themes/deeppurple-amber.css'; */
 
 
 *,
@@ -11,14 +10,19 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    
 }
 
 html, body { height: 100%; }
 
 html, body { height: 100%; }
-body { margin: 0; font-family: 'Lato', sans-serif; }
+body {
+    margin: 0; font-family: 'Lato', sans-serif;
+}
 
 .mat-progress-spinner circle, .mat-spinner circle {
     stroke: #419e98;
+}
+
+a{
+    text-decoration: none;
 }
