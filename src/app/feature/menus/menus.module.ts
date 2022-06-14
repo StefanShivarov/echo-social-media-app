@@ -19,7 +19,8 @@ import { NavbarComponent } from './navbar/navbar.component';
   ],
   exports:[
     FooterComponent,
-    NavbarComponent
+    NavbarComponent,
+    SidebarComponent
   ]
 })
 export class MenusModule { }
