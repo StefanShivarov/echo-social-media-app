@@ -8,6 +8,7 @@ import { MenusModule } from '../menus/menus.module';
 import { AuthModule } from 'src/app/auth/auth.module';
 import { LoadingComponent } from './loading/loading.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { PostsModule } from '../posts/posts.module';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     CommonModule,
     AuthModule,
     MenusModule,
+    PostsModule,
     MatProgressSpinnerModule,
   ],
   exports:[

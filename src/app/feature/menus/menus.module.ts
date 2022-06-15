@@ -20,7 +20,8 @@ import { NavbarComponent } from './navbar/navbar.component';
   exports:[
     FooterComponent,
     NavbarComponent,
-    SidebarComponent
+    SidebarComponent,
+    FriendsListComponent
   ]
 })
 export class MenusModule { }

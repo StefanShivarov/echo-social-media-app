@@ -12,6 +12,9 @@ import { PostItemComponent } from './post-item/post-item.component';
   ],
   imports: [
     CommonModule
+  ],
+  exports: [
+    FeedComponent
   ]
 })
 export class PostsModule { }
