@@ -1,0 +1,7 @@
+<form (ngSubmit)="handleAddPost()" [formGroup]="addPostFormGroup" class="create-post-form" action="">
+    <a href="" class="profile-picture">
+        <img src="https://d2qp0siotla746.cloudfront.net/img/use-cases/profile-picture/template_3.jpg" alt="">
+    </a>
+    <textarea formControlName="postContent" name="postContent" id="postContent" cols="30" rows="10" placeholder="What's on your mind?" ></textarea>
+    <input type="submit" value="Post" class="add-post-btn">
+</form>

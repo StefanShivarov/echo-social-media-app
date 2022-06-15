@@ -26,7 +26,11 @@
     font-size: 1.2rem;
 }
 
-.post-header img{
+.profile-picture{
+    border-radius: 50%;
+}
+
+.post-header .profile-picture img{
     height: 50px;
     width: 50px;
     border-radius: 50%;
@@ -48,6 +52,11 @@
     flex: 1; 
     padding: 0.5rem;
     text-align: center;
+    color: #000;
+}
+
+.post-actions a:hover{
+    color: #419e98;
 }
 
 .post-actions a:first-of-type{

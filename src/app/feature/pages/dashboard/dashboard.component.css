@@ -3,6 +3,8 @@
     background-color: #F3F2EF;
     position: relative;
     padding: 20px 580px 0px 580px;
+    display: flex;
+    justify-content: center;
 }
 
 @media all and (max-width: 730px){
